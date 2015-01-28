@@ -17,7 +17,7 @@ COPY 99-fitbit.rules /etc/udev/rules.d/99-fitbit.rules
 CMD service udev restart
 
 # add galileo daemon rules to crontab
-RUN crontab daemon.conf
+CMD crontab daemon.conf
 
 # launch galileo for the first time
 CMD galileo >> /var/log/galileo.log 2>&1
