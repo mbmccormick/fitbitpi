@@ -1,5 +1,8 @@
 FROM resin/rpi-raspbian:wheezy-2015-01-15
 
+# manually set the PATH variable to get access to crontab
+ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
 # install python
 RUN apt-get update && apt-get install -y python
 
