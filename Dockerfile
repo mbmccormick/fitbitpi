@@ -11,7 +11,7 @@ RUN pip install galileo
 
 # modify permissions on fitbit usb dongle and restart udev service
 COPY 99-fitbit.rules /etc/udev/rules.d/99-fitbit.rules
-RUN service udev restart
+CMD service udev restart
 
 COPY daemon.py /app/daemon.py
 
