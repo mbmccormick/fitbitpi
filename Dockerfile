@@ -1,8 +1,5 @@
 FROM resin/rpi-raspbian:wheezy-2015-01-15
 
-# manually set the PATH variable to get access to crontab
-ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
 # install python
 RUN apt-get update && apt-get install -y python
 
@@ -14,7 +11,7 @@ RUN pip install galileo
 
 # modify permissions on fitbit usb dongle and restart udev service
 COPY 99-fitbit.rules /etc/udev/rules.d/99-fitbit.rules
-CMD service udev restart
+RUN service udev restart
 
 COPY daemon.py /app/daemon.py
 
