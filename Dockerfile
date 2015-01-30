@@ -16,8 +16,6 @@ RUN pip install galileo
 COPY 99-fitbit.rules /etc/udev/rules.d/99-fitbit.rules
 CMD service udev restart
 
-# add galileo daemon rules to crontab
-CMD crontab daemon.conf
+COPY daemon.py /app/daemon.py
 
-# launch galileo for the first time
-CMD galileo >> /var/log/galileo.log 2>&1
+CMD ["python", "/app/daemon.py"]
