@@ -7,7 +7,7 @@ while True:
     try:
         print "executing galileo"
 
-        p = subprocess.Popen("galileo", stdout=subprocess.PIPE, shell=True)
+        p = subprocess.Popen("galileo --debug", stdout=subprocess.PIPE, shell=True)
         (output, err) = p.communicate()
 
         print output
